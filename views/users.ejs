@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Creation</title>
+  <link rel = 'stylesheet' href="/css/user.css"
+</head>
+<body>
+  <h1>Create User</h1>
+  <!-- Error handling section -->
+  <% if (typeof error !== 'undefined' && error.length > 0) { %>
+    <ul class="error-list">
+      <% error.forEach(function(err) { %>
+        <li><%= err.msg %></li>
+      <% }); %>
+    </ul>
+  <% } %>
+  <form action="/create" method="POST">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"  />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"  />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"  />
+    </div>
+    <div>
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" >
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <button type="submit">Create User</button>
+  </form>
+</body>
+</html>
